@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Awareness Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Connect CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- FULLSCREEN BACKGROUND VIDEO -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="bg-video.mp4" type="video/mp4">
+  </video>
+
+  <div id="app">
+    <!-- USER PROFILE SCREEN -->
+    <section id="user-screen" class="hidden">
+      <h2>Welcome! Tell us about yourself</h2>
+      <p>Please enter your details before starting the quiz.</p>
+
+      <div class="form-group">
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label for="user-age">Age</label>
+        <input type="number" id="user-age" placeholder="Enter your age">
+      </div>
+
+      <div class="form-group">
+        <label for="user-year">Year of studying</label>
+        <input type="text" id="user-year" placeholder="e.g. 1st year BBA">
+      </div>
+
+      <p id="user-error" class="error-text"></p>
+
+      <button id="profile-continue-btn">Continue</button>
+    </section>
+
+    <!-- WELCOME SCREEN -->
+    <section id="welcome-screen">
+      <h1>Security Awareness Game</h1>
+      <p>Learn to stay safe from phishing, weak passwords and malware through fun quizzes.</p>
+      <button id="start-btn">Start Learning</button>
+    </section>
+
+    <!-- TOPIC SELECTION SCREEN -->
+    <section id="topic-screen" class="hidden">
+      <h2>Select a Topic</h2>
+      <div class="topic-list">
+        <div class="topic-card">
+          <h3>Phishing</h3>
+          <p>Identify fake emails, links and messages.</p>
+          <button class="topic-btn" data-topic="phishing">Start Phishing Quiz</button>
+          <p class="best-score" id="best-phishing"></p>
+        </div>
+
+        <div class="topic-card">
+          <h3>Password Security</h3>
+          <p>Learn how to create and protect strong passwords.</p>
+          <button class="topic-btn" data-topic="password">Start Password Quiz</button>
+          <p class="best-score" id="best-password"></p>
+        </div>
+
+        <div class="topic-card">
+          <h3>Malware & Downloads</h3>
+          <p>Stay safe from malicious software and risky downloads.</p>
+          <button class="topic-btn" data-topic="malware">Start Malware Quiz</button>
+          <p class="best-score" id="best-malware"></p>
+        </div>
+      </div>
+
+      <!-- VIEW STATS BUTTON -->
+      <button id="view-stats-btn">View My Stats</button>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="quiz-screen" class="hidden">
+      <h2 id="topic-title">Topic</h2>
+
+      <div id="quiz-info">
+        <span id="question-number">Question 1 of 5</span>
+        <span id="score-text">Score: 0</span>
+      </div>
+
+      <p id="question-text">Question will appear here.</p>
+
+      <div id="options">
+        
+      </div>
+
+  
+      <p id="feedback-text"></p>
+
+      <button id="next-btn" disabled>Next</button>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="result-screen" class="hidden">
+      <h2>Quiz Result</h2>
+      <p id="result-text">Your result will appear here.</p>
+      <div id="result-buttons">
+        <button id="retry-btn">Retry This Topic</button>
+        <button id="back-btn">Back to Topics</button>
+      </div>
+    </section>
+
+    
+    <section id="stats-screen" class="hidden">
+      <h2>My Learning Stats</h2>
+      <p id="stats-overview">No data yet. Play some quizzes first!</p>
+
+      <h3>By Topic</h3>
+      <ul id="stats-topic-list">
+        <!-- Filled by JS -->
+      </ul>
+
+      <h3>By Difficulty</h3>
+      <ul id="stats-diff-list">
+        <!-- Filled by JS -->
+      </ul>
+
+      <p id="stats-last-played"></p>
+
+      <button id="back-from-stats-btn">Back</button>
+      <button id="clear-stats-btn">Clear Stats</button>
+    </section>
+  </div>
+
+  <!-- Our JavaScript files -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
